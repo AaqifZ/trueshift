@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block');
+html,body{margin:0;background:#fff}
+svg{display:block;font-family:Inter,-apple-system,sans-serif}
+.t{font-size:40px;font-weight:700;fill:#0f172a}
+.st{font-size:22px;fill:#64748b}
+.h{font-size:24px;font-weight:600;fill:#0f172a}
+.b{font-size:19px;fill:#334155}
+.m{font-size:16px;fill:#64748b}
+.lab{font-size:16px;font-weight:600;fill:#475569}
+.wh{fill:#fff}

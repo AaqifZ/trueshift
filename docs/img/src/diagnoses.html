@@ -1,0 +1,64 @@
+<!doctype html><html data-size="1600,740"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css"></head><body>
+<svg width="1600" height="740" viewBox="0 0 1600 740">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker>
+  </defs>
+  <text x="60" y="78" class="t">Six months, three diagnoses, one bug</text>
+  <text x="60" y="116" class="st">Symptom: the red filter didn't stick, and the screen flashed red every 5 minutes.</text>
+
+  <path d="M80,240 H1530" stroke="#cbd5e1" stroke-width="4" marker-end="url(#a)"/>
+
+  <!-- 1 -->
+  <circle cx="200" cy="240" r="14" fill="#94a3b8"/>
+  <text x="120" y="204" class="lab">15 JAN</text>
+  <rect x="80" y="280" width="340" height="300" rx="12" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="80" y="280" width="8" height="300" rx="4" fill="#94a3b8"/>
+  <text x="106" y="320" class="lab">DIAGNOSIS 1 · WRONG REASON</text>
+  <text x="106" y="356" class="h" style="font-size:21px">"A macOS agent resets</text>
+  <text x="106" y="384" class="h" style="font-size:21px">my gamma."</text>
+  <text x="106" y="428" class="b" style="font-size:17px">Plan: re-apply every 300 ms,</text>
+  <text x="106" y="454" class="b" style="font-size:17px">like f.lux. Built into the bar.</text>
+  <text x="106" y="492" class="b" style="font-size:17px">Right fix, but the CLI kept</text>
+  <text x="106" y="518" class="b" style="font-size:17px">flashing.</text>
+  <text x="106" y="550" class="m">Based on web research</text>
+
+  <!-- 2 -->
+  <circle cx="580" cy="240" r="14" fill="#94a3b8"/>
+  <text x="500" y="204" class="lab">3 JUL</text>
+  <rect x="460" y="280" width="340" height="300" rx="12" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="460" y="280" width="8" height="300" rx="4" fill="#94a3b8"/>
+  <text x="486" y="320" class="lab">DIAGNOSIS 2 · WRONG</text>
+  <text x="486" y="356" class="h" style="font-size:21px">"Apple Silicon built-in</text>
+  <text x="486" y="384" class="h" style="font-size:21px">screens ignore gamma."</text>
+  <text x="486" y="428" class="b" style="font-size:17px">The API returned success,</text>
+  <text x="486" y="454" class="b" style="font-size:17px">nothing changed. Marked</text>
+  <text x="486" y="480" class="b" style="font-size:17px">the project BLOCKED.</text>
+  <text x="486" y="550" class="m">Tested from the short-lived CLI</text>
+
+  <!-- 3 -->
+  <circle cx="960" cy="240" r="16" fill="#ff9900"/>
+  <text x="880" y="204" class="lab">18 JUL</text>
+  <rect x="840" y="280" width="340" height="300" rx="12" fill="#fff" stroke="#ff9900" stroke-width="3"/>
+  <text x="866" y="320" class="lab" style="fill:#9a3412">DIAGNOSIS 3 · RIGHT</text>
+  <text x="866" y="356" class="h" style="font-size:21px">"Gamma lasts only as</text>
+  <text x="866" y="384" class="h" style="font-size:21px">long as its writer."</text>
+  <text x="866" y="428" class="b" style="font-size:17px">Read the gamma back minutes</text>
+  <text x="866" y="454" class="b" style="font-size:17px">after a tick: factory default.</text>
+  <text x="866" y="480" class="b" style="font-size:17px">The CLI's writes never stuck.</text>
+  <text x="866" y="550" class="m">Measured, not assumed</text>
+
+  <!-- 4 -->
+  <circle cx="1340" cy="240" r="14" fill="#16a34a"/>
+  <text x="1260" y="204" class="lab">23 JUL</text>
+  <rect x="1220" y="280" width="310" height="300" rx="12" fill="#f0fdf4" stroke="#86efac" stroke-width="2"/>
+  <text x="1246" y="320" class="lab" style="fill:#15803d">FIXED IN STRUCTURE</text>
+  <text x="1246" y="356" class="h" style="font-size:21px">v2.0 ships</text>
+  <text x="1246" y="400" class="b" style="font-size:17px">The CLI loses its gamma</text>
+  <text x="1246" y="426" class="b" style="font-size:17px">code. Only the menu bar</text>
+  <text x="1246" y="452" class="b" style="font-size:17px">app writes gamma. Deep</text>
+  <text x="1246" y="478" class="b" style="font-size:17px">red verified on the M4.</text>
+
+  <rect x="80" y="620" width="1450" height="80" rx="12" fill="#fff7ed" stroke="#ff9900" stroke-width="2"/>
+  <text x="104" y="654" font-size="20" font-weight="700" fill="#9a3412">Diagnosis 2 was the dangerous one: a wrong "impossible" nearly killed the project.</text>
+  <text x="104" y="684" class="b">The fix was a better test, not a better theory. I now keep these facts in a debug section so no one relearns them.</text>
+</svg></body></html>

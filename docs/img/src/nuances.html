@@ -1,0 +1,70 @@
+<!doctype html><html data-size="1600,880"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css"></head><body>
+<svg width="1600" height="880" viewBox="0 0 1600 880">
+  <text x="60" y="78" class="t">It's not just a blue-light filter</text>
+  <text x="60" y="116" class="st">Six details that make it fit my life, not a generic night mode.</text>
+
+  <!-- 1 deep red -->
+  <rect x="60" y="160" width="480" height="320" rx="16" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="90" y="210" class="h">1 · Deep red, not orange</text>
+  <rect x="90" y="240" width="130" height="130" rx="12" fill="#fffefa" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="235" y="240" width="130" height="130" rx="12" fill="#ffa657"/>
+  <rect x="380" y="240" width="130" height="130" rx="12" fill="#ff4300"/>
+  <text x="155" y="400" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">6500K</text>
+  <text x="300" y="400" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">2700K</text>
+  <text x="445" y="400" text-anchor="middle" font-size="18" font-weight="700" fill="#b91c1c">1000K</text>
+  <text x="155" y="426" text-anchor="middle" class="m">default</text>
+  <text x="300" y="426" text-anchor="middle" class="m">Night Shift floor</text>
+  <text x="445" y="426" text-anchor="middle" font-size="16" font-weight="600" fill="#b91c1c">trueshift night</text>
+
+  <!-- 2 flicker -->
+  <rect x="560" y="160" width="480" height="320" rx="16" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="590" y="210" class="h">2 · No backlight flicker</text>
+  <text x="590" y="256" class="lab">USUAL DIMMING</text>
+  <path d="M590,320 h30 v-44 h30 v44 h30 v-44 h30 v44 h30 v-44 h30 v44 h30 v-44 h30 v44 h30 v-44 h30 v44 h30 v-44 h30 v44" fill="none" stroke="#dc2626" stroke-width="3.5"/>
+  <text x="590" y="360" class="lab">PWM-SAFE</text>
+  <path d="M590,384 H1010" stroke="#16a34a" stroke-width="5"/>
+  <text x="590" y="432" class="b" style="font-size:17px">Backlight held at 100%. The image is</text>
+  <text x="590" y="458" class="b" style="font-size:17px">dimmed in software instead.</text>
+
+  <!-- 3 sun -->
+  <rect x="1060" y="160" width="480" height="320" rx="16" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="1090" y="210" class="h">3 · Follows my sun</text>
+  <path d="M1110,370 A190,120 0 0 1 1490,370" fill="none" stroke="#fdba74" stroke-width="4" stroke-dasharray="8 6"/>
+  <circle cx="1300" cy="252" r="22" fill="#ff9900"/>
+  <path d="M1100,370 H1500" stroke="#94a3b8" stroke-width="3"/>
+  <text x="1110" y="404" class="m">sunrise</text><text x="1490" y="404" text-anchor="end" class="m">sunset</text>
+  <text x="1090" y="440" class="b" style="font-size:17px">Real sunrise and sunset for Sydney,</text>
+  <text x="1090" y="466" class="b" style="font-size:17px">every day. Not a fixed 9 pm timer.</text>
+
+  <!-- 4 brightness -->
+  <rect x="60" y="500" width="480" height="320" rx="16" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="90" y="550" class="h">4 · Red, not dark</text>
+  <rect x="90" y="590" width="420" height="40" rx="20" fill="#fee2e2"/>
+  <rect x="90" y="590" width="420" height="40" rx="20" fill="#ff4300"/>
+  <text x="300" y="617" text-anchor="middle" font-size="18" font-weight="700" class="wh">brightness 100% at 11 pm</text>
+  <text x="90" y="690" class="b" style="font-size:17px">I work at night. The color changes,</text>
+  <text x="90" y="716" class="b" style="font-size:17px">the brightness never does. I can still</text>
+  <text x="90" y="742" class="b" style="font-size:17px">read everything.</text>
+
+  <!-- 5 override -->
+  <rect x="560" y="500" width="480" height="320" rx="16" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="590" y="550" class="h">5 · My choice wins</text>
+  <rect x="590" y="598" width="420" height="10" rx="5" fill="url(#sl)"/>
+  <defs><linearGradient id="sl"><stop offset="0" stop-color="#ff4300"/><stop offset=".45" stop-color="#ffa657"/><stop offset="1" stop-color="#fffefa"/></linearGradient></defs>
+  <circle cx="900" cy="603" r="16" fill="#fff" stroke="#0f172a" stroke-width="3"/>
+  <text x="590" y="644" class="m">1000K</text><text x="1010" y="644" text-anchor="end" class="m">6500K</text>
+  <text x="590" y="690" class="b" style="font-size:17px">Need true color at night for a design</text>
+  <text x="590" y="716" class="b" style="font-size:17px">review? Drag the slider. It holds until</text>
+  <text x="590" y="742" class="b" style="font-size:17px">the next sunrise, then auto takes over.</text>
+
+  <!-- 6 runs itself -->
+  <rect x="1060" y="500" width="480" height="320" rx="16" fill="#fff" stroke="#ff9900" stroke-width="3"/>
+  <text x="1090" y="550" class="h">6 · Runs itself, just code</text>
+  <rect x="1090" y="574" width="420" height="96" rx="10" fill="#0f172a"/>
+  <text x="1110" y="606" font-family="Menlo,monospace" font-size="16" fill="#94a3b8"># ~/.config/trueshift/config.yaml</text>
+  <text x="1110" y="632" font-family="Menlo,monospace" font-size="16" fill="#e2e8f0">location: { latitude: -33.87,</text>
+  <text x="1110" y="656" font-family="Menlo,monospace" font-size="16" fill="#e2e8f0">            longitude: 151.21 }</text>
+  <text x="1090" y="716" class="b" style="font-size:17px">That's the whole setup. Nothing to</text>
+  <text x="1090" y="742" class="b" style="font-size:17px">remember. Want it different? It's my</text>
+  <text x="1090" y="768" class="b" style="font-size:17px">code, so I change it.</text>
+</svg></body></html>

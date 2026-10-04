@@ -1,0 +1,31 @@
+<!doctype html><html data-size="1600,720"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css"></head><body>
+<svg width="1600" height="720" viewBox="0 0 1600 720">
+  <text x="60" y="78" class="t">Same 60% brightness, two ways to get there</text>
+  <text x="60" y="116" class="st">Most screens dim by blinking the backlight very fast. Your eyes can't see it, but some people feel it.</text>
+
+  <!-- left -->
+  <rect x="60" y="160" width="700" height="420" rx="16" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <path d="M60,176 a16,16 0 0 1 16,-16 h668 a16,16 0 0 1 16,16 v60 h-700 z" fill="#64748b"/>
+  <text x="92" y="208" font-size="26" font-weight="700" class="wh">Usual: PWM dimming</text>
+  <text x="92" y="290" class="lab">BACKLIGHT</text>
+  <path d="M92,400 h36 v-80 h54 v80 h36 v-80 h54 v80 h36 v-80 h54 v80 h36 v-80 h54 v80 h36 v-80 h54 v80 h36 v-80 h54" fill="none" stroke="#dc2626" stroke-width="4"/>
+  <text x="92" y="318" class="m">on</text><text x="92" y="420" class="m">off</text>
+  <text x="92" y="470" class="lab">IMAGE</text>
+  <rect x="200" y="452" width="520" height="34" rx="6" fill="#ffa657" opacity=".6"/>
+  <text x="92" y="544" class="b">Flicker, hundreds of times a second.</text>
+
+  <!-- right -->
+  <rect x="840" y="160" width="700" height="420" rx="16" fill="#fff" stroke="#ff9900" stroke-width="3"/>
+  <path d="M840,176 a16,16 0 0 1 16,-16 h668 a16,16 0 0 1 16,16 v60 h-700 z" fill="#ff9900"/>
+  <text x="872" y="208" font-size="26" font-weight="700" class="wh">trueshift: PWM-safe</text>
+  <text x="872" y="290" class="lab">BACKLIGHT</text>
+  <path d="M872,320 H1500" stroke="#16a34a" stroke-width="6"/>
+  <text x="1500" y="306" text-anchor="end" font-size="16" font-weight="600" fill="#15803d">pinned at 100%, steady</text>
+  <text x="872" y="470" class="lab">IMAGE</text>
+  <rect x="980" y="452" width="520" height="34" rx="6" fill="#ffa657" opacity=".6"/>
+  <text x="1500" y="440" text-anchor="end" font-size="16" font-weight="600" fill="#9a3412">dimmed in software (gamma)</text>
+  <text x="872" y="544" class="b">No flicker. Re-pinned about every second.</text>
+
+  <rect x="60" y="612" width="1480" height="72" rx="12" fill="#f1f5f9"/>
+  <text x="88" y="656" class="b"><tspan font-weight="600">Where it came from:</tspan> I studied TapZap, a paid app. This was the one thing it had that trueshift didn't.</text>
+</svg></body></html>

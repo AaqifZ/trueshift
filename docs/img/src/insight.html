@@ -1,0 +1,50 @@
+<!doctype html><html data-size="1600,780"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css"></head><body>
+<svg width="1600" height="780" viewBox="0 0 1600 780">
+  <text x="60" y="78" class="t">A gamma change lives only as long as its writer</text>
+  <text x="60" y="116" class="st">macOS undoes a process's gamma table the moment that process exits. That one fact explained six months of bugs.</text>
+
+  <!-- left: short-lived -->
+  <rect x="60" y="160" width="700" height="460" rx="16" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <path d="M60,176 a16,16 0 0 1 16,-16 h668 a16,16 0 0 1 16,16 v60 h-700 z" fill="#64748b"/>
+  <text x="92" y="208" font-size="26" font-weight="700" class="wh">Short-lived CLI writes gamma</text>
+
+  <text x="92" y="290" class="lab">PROCESS</text>
+  <rect x="200" y="270" width="90" height="30" rx="6" fill="#64748b"/>
+  <text x="245" y="291" text-anchor="middle" font-size="15" font-weight="600" class="wh">~1 s</text>
+  <path d="M290,285 H700" stroke="#cbd5e1" stroke-width="3" stroke-dasharray="6 6"/>
+  <text x="310" y="276" class="m">exited</text>
+
+  <text x="92" y="360" class="lab">SCREEN</text>
+  <rect x="200" y="338" width="90" height="36" rx="6" fill="#dc2626"/>
+  <rect x="290" y="338" width="410" height="36" rx="6" fill="#e0f2fe" stroke="#bae6fd"/>
+  <text x="310" y="362" font-size="16" fill="#0369a1">back to normal</text>
+
+  <rect x="92" y="420" width="636" height="80" rx="10" fill="#f1f5f9"/>
+  <text x="116" y="454" font-size="21" font-weight="700" fill="#334155">Result: a 1-second red flash,</text>
+  <text x="116" y="484" font-size="21" font-weight="700" fill="#334155">then nothing. Every 5 minutes.</text>
+  <text x="92" y="566" class="b">I misread this twice as "macOS is fighting me"</text>
+  <text x="92" y="594" class="b">and "this display ignores gamma".</text>
+
+  <!-- right: persistent -->
+  <rect x="840" y="160" width="700" height="460" rx="16" fill="#fff" stroke="#ff9900" stroke-width="3"/>
+  <path d="M840,176 a16,16 0 0 1 16,-16 h668 a16,16 0 0 1 16,16 v60 h-700 z" fill="#ff9900"/>
+  <text x="872" y="208" font-size="26" font-weight="700" class="wh">Menu bar app writes gamma</text>
+
+  <text x="872" y="290" class="lab">PROCESS</text>
+  <rect x="980" y="270" width="500" height="30" rx="6" fill="#ff9900"/>
+  <text x="1230" y="291" text-anchor="middle" font-size="15" font-weight="600" class="wh">always running</text>
+
+  <text x="872" y="360" class="lab">SCREEN</text>
+  <rect x="980" y="338" width="500" height="36" rx="6" fill="#dc2626"/>
+  <text x="1230" y="362" text-anchor="middle" font-size="16" font-weight="600" class="wh">deep red holds</text>
+
+  <rect x="872" y="420" width="636" height="80" rx="10" fill="#fff7ed" stroke="#fed7aa"/>
+  <text x="896" y="454" font-size="21" font-weight="700" fill="#9a3412">Result: true 1000K on every display,</text>
+  <text x="896" y="484" font-size="21" font-weight="700" fill="#9a3412">including the built-in one.</text>
+  <text x="872" y="566" class="b">So only the persistent app may write gamma.</text>
+  <text x="872" y="594" class="b">The CLI has no gamma code at all, by design.</text>
+
+  <rect x="60" y="660" width="1480" height="80" rx="14" fill="#f1f5f9"/>
+  <text x="92" y="696" class="b"><tspan font-weight="600">The other layer, CoreBrightness (the engine behind Night Shift), persists after exit.</tspan></text>
+  <text x="92" y="724" class="b">But it only goes down to 2700K. So: CoreBrightness for 2700K and up, gamma from the live app for below.</text>
+</svg></body></html>

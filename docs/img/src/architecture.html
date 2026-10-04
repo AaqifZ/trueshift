@@ -1,0 +1,99 @@
+<!doctype html><html data-size="1600,860"><head><meta charset="utf-8"><link rel="stylesheet" href="base.css"></head><body>
+<svg width="1600" height="860" viewBox="0 0 1600 860">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker>
+  </defs>
+  <text x="60" y="78" class="t">How trueshift works</text>
+  <text x="60" y="116" class="st">One shared core decides the color. Who is allowed to write it depends on how long they live.</text>
+
+  <rect x="40" y="160" width="1520" height="580" rx="18" fill="#f8fafc" stroke="#94a3b8" stroke-width="2" stroke-dasharray="8 6"/>
+  <rect x="64" y="146" width="210" height="30" rx="6" fill="#0f172a"/>
+  <text x="82" y="167" font-size="16" font-weight="600" class="wh">Your Mac · macOS</text>
+
+  <text x="80" y="222" class="lab">INPUTS</text>
+  <text x="440" y="222" class="lab">DECIDE</text>
+  <text x="840" y="222" class="lab">WRITE</text>
+  <text x="1250" y="222" class="lab">DISPLAYS</text>
+
+  <!-- INPUTS -->
+  <rect x="80" y="240" width="280" height="130" rx="12" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="80" y="240" width="8" height="130" rx="4" fill="#2563eb"/>
+  <rect x="106" y="262" width="44" height="44" rx="10" fill="#dbeafe"/>
+  <circle cx="128" cy="284" r="8" fill="none" stroke="#2563eb" stroke-width="2.5"/><path d="M128,268 v5 M128,295 v5 M112,284 h5 M139,284 h5 M117,273 l3,3 M136,292 l3,3 M117,295 l3,-3 M136,276 l3,-3" stroke="#2563eb" stroke-width="2.5"/>
+  <text x="164" y="282" class="h" style="font-size:22px">The sun</text>
+  <text x="164" y="306" class="b" style="font-size:17px">Sunrise and sunset</text>
+  <text x="106" y="350" class="m">From my location in config</text>
+
+  <rect x="80" y="390" width="280" height="130" rx="12" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="80" y="390" width="8" height="130" rx="4" fill="#2563eb"/>
+  <rect x="106" y="412" width="44" height="44" rx="10" fill="#dbeafe"/>
+  <path d="M112,434 h32 M120,426 v16" stroke="#2563eb" stroke-width="3" stroke-linecap="round"/><circle cx="120" cy="434" r="6" fill="#dbeafe" stroke="#2563eb" stroke-width="2.5"/>
+  <text x="164" y="432" class="h" style="font-size:22px">Me</text>
+  <text x="164" y="456" class="b" style="font-size:17px">Slider, preset, CLI</text>
+  <text x="106" y="500" class="m">Sticky until next sunrise</text>
+
+  <rect x="80" y="540" width="280" height="130" rx="12" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="80" y="540" width="8" height="130" rx="4" fill="#64748b"/>
+  <text x="106" y="584" class="h" style="font-size:22px">config.yaml</text>
+  <text x="106" y="610" class="b" style="font-size:17px">Shared state, atomic writes</text>
+  <text x="106" y="650" class="m">The bar watches it every 300 ms</text>
+
+  <!-- DECIDE -->
+  <rect x="440" y="240" width="320" height="430" rx="14" fill="#fff" stroke="#ff9900" stroke-width="3"/>
+  <path d="M440,254 a14,14 0 0 1 14,-14 h292 a14,14 0 0 1 14,14 v56 h-320 z" fill="#ff9900"/>
+  <text x="464" y="282" font-size="26" font-weight="700" class="wh">TrueshiftCore</text>
+  <text x="464" y="302" font-size="15" class="wh">Swift library · shared by CLI and app</text>
+  <text x="466" y="352" class="lab">THE CURVE</text>
+  <text x="466" y="382" class="b">Pure functions: time in,</text>
+  <text x="466" y="408" class="b">color temperature out.</text>
+  <rect x="466" y="434" width="268" height="96" rx="10" fill="#fff7ed" stroke="#fed7aa"/>
+  <text x="486" y="470" font-size="21" font-weight="700" fill="#9a3412">Day 5500K</text>
+  <text x="486" y="506" font-size="21" font-weight="700" fill="#9a3412">Night 1000K</text>
+  <text x="466" y="574" class="lab">NEVER TOUCHES BRIGHTNESS</text>
+  <text x="466" y="604" class="b" style="font-size:17px">I work at night. Deep red at</text>
+  <text x="466" y="628" class="b" style="font-size:17px">full brightness is the point.</text>
+
+  <!-- WRITE -->
+  <rect x="840" y="240" width="330" height="190" rx="12" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="840" y="240" width="8" height="190" rx="4" fill="#64748b"/>
+  <text x="866" y="282" class="h" style="font-size:22px">CLI + launchd agent</text>
+  <text x="866" y="308" class="b" style="font-size:17px">Runs every 5 min, then exits</text>
+  <rect x="866" y="330" width="280" height="76" rx="10" fill="#f1f5f9"/>
+  <text x="884" y="362" font-size="17" font-weight="600" fill="#334155">CoreBrightness only</text>
+  <text x="884" y="390" class="m">No gamma code path at all</text>
+
+  <rect x="840" y="460" width="330" height="210" rx="12" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="840" y="460" width="8" height="210" rx="4" fill="#dc2626"/>
+  <text x="866" y="502" class="h" style="font-size:22px">TrueshiftBar</text>
+  <text x="866" y="528" class="b" style="font-size:17px">Menu bar app, always running</text>
+  <rect x="866" y="550" width="280" height="96" rx="10" fill="#fef2f2"/>
+  <text x="884" y="580" font-size="17" font-weight="600" fill="#b91c1c">CoreBrightness</text>
+  <text x="884" y="606" font-size="17" font-weight="600" fill="#b91c1c">+ gamma for below 2700K</text>
+  <text x="884" y="632" font-size="17" font-weight="600" fill="#b91c1c">+ backlight pin (PWM-safe)</text>
+
+  <!-- DISPLAYS -->
+  <rect x="1250" y="290" width="270" height="140" rx="12" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="1278" y="316" width="64" height="42" rx="4" fill="#fde68a" stroke="#475569" stroke-width="2.5"/><path d="M1268,364 h84" stroke="#475569" stroke-width="3"/>
+  <text x="1362" y="336" class="h" style="font-size:21px">Built-in</text>
+  <text x="1362" y="360" class="b" style="font-size:16px">MacBook</text>
+  <text x="1278" y="404" class="m">Color + PWM-safe pin</text>
+
+  <rect x="1250" y="480" width="270" height="140" rx="12" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="1278" y="504" width="64" height="44" rx="4" fill="#fca5a5" stroke="#475569" stroke-width="2.5"/><path d="M1310,548 v10 M1296,560 h28" stroke="#475569" stroke-width="3"/>
+  <text x="1362" y="526" class="h" style="font-size:21px">External</text>
+  <text x="1362" y="550" class="b" style="font-size:16px">third-party</text>
+  <text x="1278" y="594" class="m">Color only, no pin</text>
+
+  <!-- arrows -->
+  <path d="M360,305 C400,305 400,340 436,340" fill="none" stroke="#475569" stroke-width="2.5" marker-end="url(#a)"/>
+  <path d="M360,455 H436" fill="none" stroke="#475569" stroke-width="2.5" marker-end="url(#a)"/>
+  <path d="M360,605 C400,605 400,570 436,570" fill="none" stroke="#475569" stroke-width="2.5" marker-end="url(#a)"/>
+  <path d="M760,360 C800,360 800,335 836,335" fill="none" stroke="#475569" stroke-width="2.5" marker-end="url(#a)"/>
+  <path d="M760,560 C800,560 800,565 836,565" fill="none" stroke="#475569" stroke-width="2.5" marker-end="url(#a)"/>
+  <path d="M1170,335 C1210,335 1210,360 1246,360" fill="none" stroke="#475569" stroke-width="2.5" marker-end="url(#a)"/>
+  <path d="M1170,600 C1210,600 1210,550 1246,550" fill="none" stroke="#475569" stroke-width="2.5" marker-end="url(#a)"/>
+  <path d="M1170,560 C1210,560 1210,400 1246,400" fill="none" stroke="#475569" stroke-width="2.5" marker-end="url(#a)"/>
+
+  <rect x="80" y="770" width="1440" height="60" rx="10" fill="#f1f5f9"/>
+  <text x="104" y="808" class="b"><tspan font-weight="600">Native Swift, no runtime.</tspan> About 2,700 lines. Without the bar, every screen still floors at 2700K.</text>
+</svg></body></html>

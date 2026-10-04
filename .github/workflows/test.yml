@@ -1,0 +1,55 @@
+name: Tests
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    name: Swift Tests
+    runs-on: macos-14
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Swift
+        uses: swift-actions/setup-swift@v2
+        with:
+          swift-version: "5.9"
+
+      - name: Build
+        run: swift build -v
+
+      - name: Run Tests
+        # Fixtures use Sydney coordinates, and the app assumes the Mac's
+        # timezone matches its configured location. Match that here.
+        env:
+          TZ: Australia/Sydney
+        run: swift test -v
+
+  build-release:
+    name: Release Build
+    runs-on: macos-14
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Swift
+        uses: swift-actions/setup-swift@v2
+        with:
+          swift-version: "5.9"
+
+      - name: Build Release
+        run: swift build -c release -v
+
+      - name: Verify CLI Binary
+        run: |
+          .build/release/trueshift --help
+
+      - name: Verify MenuBar Binary
+        run: |
+          # Just check it exists and is executable
+          test -x .build/release/TrueshiftBar
