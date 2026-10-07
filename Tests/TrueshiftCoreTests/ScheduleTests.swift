@@ -205,20 +205,35 @@ final class ScheduleTests: XCTestCase {
 
     // MARK: - nextSunrise
 
+    // Real solar lookups at Sydney coordinates. "Today"/"tomorrow" only mean
+    // anything in Sydney's time zone, so pin the calendar and the date — the
+    // CI runner's TZ (UTC) must not leak in. 2026-07-20: no DST transition.
+    private let sydneyLat = -33.87
+    private let sydneyLon = 151.21
+    private var sydney: Calendar {
+        var cal = Calendar(identifier: .gregorian)
+        cal.timeZone = TimeZone(identifier: "Australia/Sydney")!
+        return cal
+    }
+
+    private func sydneyTime(_ hour: Int) -> Date {
+        sydney.date(from: DateComponents(year: 2026, month: 7, day: 20, hour: hour))!
+    }
+
     func testNextSunriseBeforeDawnIsToday() {
         // 2am today → today's sunrise
-        let now = calendar.date(bySettingHour: 2, minute: 0, second: 0, of: Date())!
-        let next = Schedule.nextSunrise(after: now, latitude: -33.87, longitude: 151.21)
+        let now = sydneyTime(2)
+        let next = Schedule.nextSunrise(after: now, latitude: sydneyLat, longitude: sydneyLon, calendar: sydney)
         XCTAssertNotNil(next)
-        XCTAssertTrue(calendar.isDate(next!, inSameDayAs: now))
+        XCTAssertTrue(sydney.isDate(next!, inSameDayAs: now))
         XCTAssertGreaterThan(next!, now)
     }
 
     func testNextSunriseAfterDawnIsTomorrow() {
-        let now = calendar.date(bySettingHour: 14, minute: 0, second: 0, of: Date())!
-        let next = Schedule.nextSunrise(after: now, latitude: -33.87, longitude: 151.21)
+        let now = sydneyTime(14)
+        let next = Schedule.nextSunrise(after: now, latitude: sydneyLat, longitude: sydneyLon, calendar: sydney)
         XCTAssertNotNil(next)
         XCTAssertGreaterThan(next!, now)
-        XCTAssertFalse(calendar.isDate(next!, inSameDayAs: now))
+        XCTAssertFalse(sydney.isDate(next!, inSameDayAs: now))
     }
 }

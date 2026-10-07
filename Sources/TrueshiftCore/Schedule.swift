@@ -158,9 +158,15 @@ public struct Schedule {
 
     /// Next sunrise strictly after `now`.
     /// At 2am this is TODAY's sunrise; after sunrise it is tomorrow's.
-    public static func nextSunrise(after now: Date, latitude: Double, longitude: Double) -> Date? {
+    /// `calendar` defines "local" — its time zone should match the coordinates.
+    /// Production uses the Mac's calendar; tests pin one so the runner's TZ can't leak in.
+    public static func nextSunrise(
+        after now: Date,
+        latitude: Double,
+        longitude: Double,
+        calendar: Calendar = .current
+    ) -> Date? {
         let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        let calendar = Calendar.current
 
         // CRITICAL: anchor Solar at LOCAL NOON so the UTC date component matches
         // the local date (Sydney is UTC+10/11 — at 8:30am local the UTC date is

@@ -78,7 +78,7 @@ Hard-won facts — three diagnoses over six months, one falsified later:
 
 ## Next Steps
 
-- [ ] **CI red — 1 failing test** (found 2026-08-17): `ScheduleTests.testNextSunriseAfterDawnIsTomorrow` (`ScheduleTests.swift:222`, XCTAssertFalse failed). Release Build passes; only this test fails. Strong suspicion: **timezone-dependent test** — CI runs in UTC, the curve logic is Sydney-anchored, so "next sunrise is tomorrow" flips. Likely fix: inject a fixed TimeZone/clock into the test rather than relying on the runner's local time. Not a defect in the shipped app (live-verified working).
+- [x] **CI TZ-dependent test fixed** (2026-10-07): `testNextSunriseAfterDawnIsTomorrow` judged "tomorrow" with the runner's calendar while using Sydney coordinates. Under UTC, Sydney's next sunrise (≈19:00–21:00 UTC) falls on the same UTC day, so the test failed. Code was correct. `Schedule.nextSunrise` now takes `calendar:` (default `.current`); tests pin Sydney + a fixed date. CI runs a TZ matrix (UTC + Australia/Sydney) in place of the old `TZ=Australia/Sydney` mask.
 - [x] **PWM live test** (2026-07-25): pin, dim, drift re-assert, disable-restore all verified on M4 built-in via CLI + gammacheck. New bar installed to /Applications.
 - [ ] Panel UX pass on the PWM slider (the CLI path is proven; still want a hands-on drag check + banding look near the 20% floor)
 - [ ] Multi-display test on a Studio Display / Pro Display XDR (drift re-assert latency over DDC-ish path — may need to loosen the 3-tick cadence)

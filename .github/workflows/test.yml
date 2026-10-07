@@ -11,6 +11,10 @@ jobs:
   test:
     name: Swift Tests
     runs-on: macos-14
+    strategy:
+      matrix:
+        # Tests must not depend on the runner's time zone. Run both.
+        tz: ["UTC", "Australia/Sydney"]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -23,11 +27,9 @@ jobs:
       - name: Build
         run: swift build -v
 
-      - name: Run Tests
-        # Fixtures use Sydney coordinates, and the app assumes the Mac's
-        # timezone matches its configured location. Match that here.
+      - name: Run Tests (TZ=${{ matrix.tz }})
         env:
-          TZ: Australia/Sydney
+          TZ: ${{ matrix.tz }}
         run: swift test -v
 
   build-release:
