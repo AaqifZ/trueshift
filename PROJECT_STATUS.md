@@ -2,8 +2,10 @@
 
 > Circadian display control for macOS. Temp-only: deep red at night, full brightness always.
 
-**Last updated:** 2026-07-25 (v2.1 — PWM-safe)
-**Session summary:** Studied TapZap (commercial PWM/blue-light app). It matches trueshift on blue-light depth and app weight; its one un-cloned feature was PWM-safe dimming. Built PWM-safe mode: pin backlight to 100% (kills PWM flicker), dim the image by scaling the gamma table. All Apple displays, sticky, per-display (externals we can't pin keep their own brightness). **Live-tested end to end on M4 built-in (2026-07-25):** pin 0.90→1.00 ✓, gamma dim to 0.60 ✓, drift re-assert 0.50→1.00 in ≤1.2s ✓, disable restored 0.89 + identity gamma ✓.
+**Last updated:** 2026-10-08 (CI timezone fix)
+**Session summary:** Fixed the timezone-dependent `nextSunrise` test. The test, not `Schedule`, was wrong: it judged "tomorrow" with the runner's calendar at Sydney coordinates. `Schedule.nextSunrise` now takes `calendar:` (default `.current`). CI runs the tests under UTC and Australia/Sydney (run 37557419683, all green). Note: this Mac has Command Line Tools only, so `swift test` fails locally. Rely on CI, or a scratch harness that links Solar.
+
+**Previous session (2026-07-25, v2.1 PWM-safe):** Built PWM-safe mode: pin backlight to 100% (kills PWM flicker), dim the image by scaling the gamma table. Live-tested end to end on M4 built-in.
 
 ## Current State
 
