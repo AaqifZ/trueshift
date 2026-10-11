@@ -1,0 +1,57 @@
+name: Tests
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    name: Swift Tests
+    runs-on: macos-14
+    strategy:
+      matrix:
+        # Tests must not depend on the runner's time zone. Run both.
+        tz: ["UTC", "Australia/Sydney"]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Swift
+        uses: swift-actions/setup-swift@v2
+        with:
+          swift-version: "5.9"
+
+      - name: Build
+        run: swift build -v
+
+      - name: Run Tests (TZ=${{ matrix.tz }})
+        env:
+          TZ: ${{ matrix.tz }}
+        run: swift test -v
+
+  build-release:
+    name: Release Build
+    runs-on: macos-14
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Swift
+        uses: swift-actions/setup-swift@v2
+        with:
+          swift-version: "5.9"
+
+      - name: Build Release
+        run: swift build -c release -v
+
+      - name: Verify CLI Binary
+        run: |
+          .build/release/trueshift --help
+
+      - name: Verify MenuBar Binary
+        run: |
+          # Just check it exists and is executable
+          test -x .build/release/TrueshiftBar
